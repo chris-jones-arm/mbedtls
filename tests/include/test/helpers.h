@@ -190,4 +190,13 @@ void* mbedtls_test_param_failed_get_state_buf( void );
 void mbedtls_test_param_failed_reset_state( void );
 #endif /* MBEDTLS_CHECK_PARAMS */
 
+#if defined(MBEDTLS_TEST_HOOKS)
+/**
+ * \brief	Check that a pure high-level error code is being combined with a
+ *			pure low-level error code as otherwise the resultant error code
+ *			would be corrupted.
+ */
+void mbedtls_test_err_add_check( int high, int low,
+                                 const char *file, int line);
+#endif
 #endif /* TEST_HELPERS_H */
